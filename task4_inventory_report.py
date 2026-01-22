@@ -55,7 +55,29 @@ def inventory_report(products):
     # Hint 3: Use .get("in_stock", True) for safe access with default
     # Hint 4: Use a set to collect unique categories
     # Hint 5: Calculate total_value as sum of (price * quantity) for each product
-    pass
+    total_products = len(products)
+    total_value = 0
+    in_stock_count = 0
+    categories = set()
+
+    for product in products:
+        price = product.get("price", 0)
+        quantity = product.get("quantity", 1)
+        in_stock = product.get("in_stock", True)
+        category = product.get("category")
+
+        total_value += price * quantity
+        if in_stock:
+            in_stock_count += 1
+        if category is not None:
+            categories.add(category)
+
+    return {
+        "total_products": total_products,
+        "total_value": total_value,
+        "in_stock_count": in_stock_count,
+        "categories": categories,
+    }
 
 
 # =============================================================================

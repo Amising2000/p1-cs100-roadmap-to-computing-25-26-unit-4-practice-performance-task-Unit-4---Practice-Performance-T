@@ -45,7 +45,7 @@ def filter_products(products, max_price):
     # Hint 1: Use a list comprehension with a filter
     # Hint 2: Filter pattern: [item for item in list if condition]
     # Hint 3: Access the price with product["price"]
-    pass
+    return [item for item in products if item["price"] <= max_price ]
 
 
 # =============================================================================
